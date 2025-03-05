@@ -6,12 +6,14 @@ public class UniversityItem {
     private final String imagePath;
     private final String header;
     private final String description;
+    private final String href;
 
-    public UniversityItem(String id, String imagePath, String header, String description) {
+    public UniversityItem(String id, String imagePath, String header, String description, String href) {
         this.id = id;
         this.imagePath = imagePath;
         this.header = header;
         this.description = description;
+        this.href = href;
     }
 
     public String getId() {
@@ -28,5 +30,9 @@ public class UniversityItem {
 
     public String getHeader() {
         return header;
+    }
+
+    public String getHref() {
+        return href;
     }
 }

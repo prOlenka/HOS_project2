@@ -33,6 +33,7 @@
       max-height: 400px;
       object-fit: cover;
       border-radius: 10px;
+      cursor: pointer; /* Курсор в виде указателя */
     }
 
     .description {
@@ -68,6 +69,56 @@
       height: auto;
       opacity: 0.8;
     }
+
+    /* Стили для модального окна */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      width: 80%;
+      height: 80%;
+      border-radius: 10px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .close-button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .modal-iframe {
+      flex-grow: 1;
+      border: none;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -76,11 +127,46 @@
 
 <div class="container">
   <h1 th:text="${item.header}"></h1>
-  <img th:src="${item.imagePath}" alt="Image" class="image">
+  <img th:src="${item.imagePath}" alt="Image" class="image" onclick="openModal()" th:data-href="${item.href}">
   <p th:text="${item.description}" class="description"></p>
 </div>
 
 <img src="images/Logo.jpg" alt="Logo" class="logo">
+
+<!-- Модальное окно -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="modal-title">Открытая страница</span>
+      <button class="close-button" onclick="closeModal()">Закрыть</button>
+    </div>
+    <iframe id="modal-iframe" class="modal-iframe"></iframe>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    const modal = document.getElementById("modal");
+    const iframe = document.getElementById("modal-iframe");
+    const image = document.querySelector(".image");
+
+    // Берем ссылку из data-href
+    const url = image.getAttribute("data-href");
+
+    if (url) {
+      iframe.src = url;
+      modal.style.display = "flex";
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("modal");
+    const iframe = document.getElementById("modal-iframe");
+
+    modal.style.display = "none";
+    iframe.src = ""; // Очистка iframe при закрытии
+  }
+</script>
 
 </body>
 </html>
