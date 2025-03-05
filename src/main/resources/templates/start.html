@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+  <title></title>
+</head>
+<body>
+<nav th:fragment="menu" class="menu">
+  <a href="/cfp" id="cfp"><img src="/images/cfp.png" alt="cfp" class="cfp" /></a>
+  <a href="/em" id="em"><img src="/images/em.png" alt="em" class="em" /></a>
+  <a href="/fian" id="fian"><img src="/images/fian.png" alt="fian" class="fian" /></a>
+  <a href="/ift" id="ift"><img src="/images/ift.png" alt="ift" class="ift" /></a>
+  <a href="/ifvd" id="ifvd"><img src="/images/ifvd.png" alt="ifvd" class="ifvd" /></a>
+  <a href="/inr" id="inr"><img src="/images/inr.png" alt="inr" class="inr" /></a>
+  <a href="/is" id="is"><img src="/images/is.png" alt="is" class="is" /></a>
+  <a href="/ismiran" id="ismiran"><img src="/images/ismiran.png" alt="ismiran" class="ismiran" /></a>
+  <a href="/tisnum" id="tisnum"><img src="/images/tisnum.png" alt="tisnum" class="tisnum" /></a>
+  <a href="/triniti" id="triniti"><img src="/images/triniti.png" alt="triniti" class="triniti" /></a>
+</nav>
+
+<style>
+  * {
+    font-size: 36px;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    background: url('images/map.PNG') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+  }
+  .menu {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(3, 33%);
+    grid-template-areas:
+      'cfp fian ift ifvd '
+      'em inr is ismiran '
+      'tisnum triniti . . ';
+  }
+
+  .menu a img {
+    width: 16.2vw;
+    height: 27vh;
+  }
+
+  #cfp { grid-area: cfp; align-self: center; justify-self: center; }
+  #em { grid-area: em; align-self: center; justify-self: center; }
+  #fian { grid-area: fian; align-self: center; justify-self: center; }
+  #ift { grid-area: ift; align-self: center; justify-self: center; }
+  #ifvd { grid-area: ifvd; align-self: center; justify-self: center; }
+  #inr { grid-area: inr; align-self: center; justify-self: center; }
+  #is { grid-area: is; align-self: center; justify-self: center; }
+  #ismiran { grid-area: ismiran; align-self: center; justify-self: center; }
+  #tisnum { grid-area: tisnum; align-self: center; justify-self: center; }
+  #triniti { grid-area: triniti; align-self: center; justify-self: center; }
+</style>
+</body>
+</html>

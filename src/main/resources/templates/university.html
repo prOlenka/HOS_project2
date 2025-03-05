@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .description {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Кнопка "Вернуться в главный экран" */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background: #0056b3;
+    }
+
+    /* Логотип в правом нижнем углу */
+    .logo {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 100px;
+      height: auto;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<a href="/" class="back-button">Вернуться в главный экран</a>
+
+<div class="container">
+  <h1 th:text="${item.header}"></h1>
+  <img th:src="${item.imagePath}" alt="Image" class="image">
+  <p th:text="${item.description}" class="description"></p>
+</div>
+
+<img src="images/Logo.jpg" alt="Logo" class="logo">
+
+</body>
+</html>
