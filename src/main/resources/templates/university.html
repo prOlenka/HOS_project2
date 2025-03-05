@@ -39,19 +39,7 @@
       modal.style.display = "flex";
       iframe.src = url;
 
-      // Проверяем успешность загрузки через таймер
-      let checkIframe = setTimeout(() => {
-        if (!iframe.contentWindow || iframe.contentWindow.location.href === "about:blank") {
-          useProxy(url, modal, iframe);
-        }
-      }, 1000); // 1 секунда на загрузку
-
-      iframe.onload = function () {
-        clearTimeout(checkIframe); // Если загрузилось успешно, отменяем проверку
-      };
-
       iframe.onerror = function () {
-        clearTimeout(checkIframe);
         useProxy(url, modal, iframe);
       };
     }
