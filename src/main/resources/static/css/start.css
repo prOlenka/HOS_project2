@@ -1,0 +1,27 @@
+.menu {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.menu button {
+    position: absolute;
+    width: 20%; /* или другой размер */
+    height: 33%;
+}
+
+/* Пример индивидуального позиционирования */
+.menu .cfp { left: 0%; top: 0%; }
+.menu .fian { left: 20%; top: 0%; }
+.menu .ift { left: 40%; top: 0%; }
+.menu .ifvd { left: 60%; top: 0%; }
+
+.menu .em { left: 0%; top: 33%; }
+.menu .inr { left: 20%; top: 33%; }
+.menu .is { left: 40%; top: 33%; }
+.menu .ismiran { left: 60%; top: 33%; }
+
+.menu .tisnum { left: 0%; top: 66%; }
+.menu .triniti { left: 20%; top: 66%; }
